@@ -72,7 +72,6 @@ class Stack {
       else{
         top--;
       }
-      top--;
     }
 
     bool isEmpty(){
