@@ -42,91 +42,111 @@ using namespace std;
 //         Stack function implementation from scratch
 
 
-class Stack {
-  public:
-    int* arr;
-    int size;
-    int top;
+// class Stack {
+//   public:
+//     int* arr;
+//     int size;
+//     int top;
 
-    Stack(int size){
-      arr = new int[size];
-      this->size = size;
-      this->top = -1;
-    }
+//     Stack(int size){
+//       arr = new int[size];
+//       this->size = size;
+//       this->top = -1;
+//     }
 
-    void push(int data){
-      if(top>size){
-        cout<<"Stack overflow"<<endl;
-        return;
-      }
-      else{
-        top++;
-        arr[top] = data;
-      }
-    }
+//     void push(int data){
+//       if(top>size){
+//         cout<<"Stack overflow"<<endl;
+//         return;
+//       }
+//       else{
+//         top++;
+//         arr[top] = data;
+//       }
+//     }
 
-    void pop(){
-      if(top == -1){
-        cout<<"Stack is empty"<<endl;
-      }
-      else{
-        top--;
-      }
-    }
+//     void pop(){
+//       if(top == -1){
+//         cout<<"Stack is empty"<<endl;
+//       }
+//       else{
+//         top--;
+//       }
+//     }
 
-    bool isEmpty(){
-      if(top == -1){
-        return true;
-      }
-      else{
-        return false;
-      }
-    }
+//     bool isEmpty(){
+//       if(top == -1){
+//         return true;
+//       }
+//       else{
+//         return false;
+//       }
+//     }
 
-    int getTop(){
-      if(top == -1){
-        cout<<"Stack is empty"<<endl;
-        return 0;
-      }
-      else{
-        return arr[top];
-      }
-    }
+//     int getTop(){
+//       if(top == -1){
+//         cout<<"Stack is empty"<<endl;
+//         return 0;
+//       }
+//       else{
+//         return arr[top];
+//       }
+//     }
 
-    int getSize(){
-      if(top == -1){
-        cout<<"Stack is empty"<<endl;
-        return 0;
-      }
-      else{
-        return top+1;
-      }
-    }
+//     int getSize(){
+//       if(top == -1){
+//         cout<<"Stack is empty"<<endl;
+//         return 0;
+//       }
+//       else{
+//         return top+1;
+//       }
 
-    void print(){
-      cout<<"top element is: "<<getTop()<<endl;
-      for(int i=0;i<getSize();i++){
-        cout<<"Stack is: "<<arr[i]<<" ";
-      }
-      cout<<endl;
-    }
+//     }
+
+//     void print(){
+//       cout<<"top element is: "<<getTop()<<endl;
+//       for(int i=0;i<getSize();i++){
+//         cout<<"Stack is: "<<arr[i]<<" ";
+//       }
+//       cout<<endl;
+//     }
 
 
-};
+// };
+
+// int main(){
+//   Stack st(5);
+
+//   st.push(60);
+//   st.print();
+
+//   st.push(70);
+//   st.print();
+
+//   st.push(80);
+//   st.print();
+
+//   st.push(90);
+//   st.print();
+  
+// }
+
+
+//             reverse string using stack
 
 int main(){
-  Stack st(5);
+  string str = "Hello";
+  stack<char> st;
 
-  st.push(60);
-  st.print();
+  for(int i=0;i<str.length();i++){
+    char ch = str[i];
+    st.push(ch);
+  }
 
-  st.push(70);
-  st.print();
-
-  st.push(80);
-  st.print();
-
-  st.push(90);
-  st.print();
-  
+  while(!st.empty()){
+    cout<<st.top()<<"";
+    st.pop();
+  }
+  cout<<endl;
 }
