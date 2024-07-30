@@ -135,18 +135,71 @@ using namespace std;
 
 //             reverse string using stack
 
+// int main(){
+//   string str = "Hello";
+//   stack<char> st;
+
+//   for(int i=0;i<str.length();i++){
+//     char ch = str[i];
+//     st.push(ch);
+//   }
+
+//   while(!st.empty()){
+//     cout<<st.top()<<"";
+//     st.pop();
+//   }
+//   cout<<endl;
+// }
+
+
+
+//           Get Middle elements of stack
+
+void getMiddleElements(stack<int> &st,int &pos){
+  // base case
+  if(pos==1){
+    cout<<st.top()<<endl;
+    return;
+  }
+
+  // 1 case
+  int temp = st.top();
+  st.pop();
+  pos--;
+  getMiddleElements(st,pos);
+
+  // backtracking
+  st.push(temp);
+  
+}
+
+int getMiddleElementsPos(stack<int> &st){
+  int size = st.size();
+  if(st.empty()){
+    return -1;
+  }
+
+  int pos = 0;
+  if(size%2==0){
+    pos = size/2;
+  }
+  else{
+    pos = size/2+1;
+  }
+  return pos;
+}
+
 int main(){
-  string str = "Hello";
-  stack<char> st;
+  stack<int> st;
 
-  for(int i=0;i<str.length();i++){
-    char ch = str[i];
-    st.push(ch);
-  }
+  st.push(10);
+  st.push(20);
+  st.push(30);
+  st.push(40);
+  st.push(50);
+  st.push(60);
 
-  while(!st.empty()){
-    cout<<st.top()<<"";
-    st.pop();
-  }
-  cout<<endl;
+  int pos = getMiddleElementsPos(st);
+  cout<<pos<<endl;
+  getMiddleElements(st ,pos);
 }
