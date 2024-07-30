@@ -155,38 +155,57 @@ using namespace std;
 
 //           Get Middle elements of stack
 
-void getMiddleElements(stack<int> &st,int &pos){
+// void getMiddleElements(stack<int> &st,int &pos){
+//   // base case
+//   if(pos==1){
+//     cout<<st.top()<<endl;
+//     return;
+//   }
+
+//   // 1 case
+//   int temp = st.top();
+//   st.pop();
+//   pos--;
+//   getMiddleElements(st,pos);
+
+//   // backtracking
+//   st.push(temp);
+  
+// }
+
+// int getMiddleElementsPos(stack<int> &st){
+//   int size = st.size();
+//   if(st.empty()){
+//     return -1;
+//   }
+
+//   int pos = 0;
+//   if(size%2==0){
+//     pos = size/2;
+//   }
+//   else{
+//     pos = size/2+1;
+//   }
+//   return pos;
+// }
+
+void insertAtBottom(stack<int> &st,int &elements){
+  int size = st.size();
   // base case
-  if(pos==1){
-    cout<<st.top()<<endl;
+  if(st.empty()){
+    st.push(elements);
     return;
   }
 
   // 1 case
   int temp = st.top();
   st.pop();
-  pos--;
-  getMiddleElements(st,pos);
+  size--;
+  insertAtBottom(st,elements);
 
+  cout<<st.top()<<" ";
   // backtracking
   st.push(temp);
-  
-}
-
-int getMiddleElementsPos(stack<int> &st){
-  int size = st.size();
-  if(st.empty()){
-    return -1;
-  }
-
-  int pos = 0;
-  if(size%2==0){
-    pos = size/2;
-  }
-  else{
-    pos = size/2+1;
-  }
-  return pos;
 }
 
 int main(){
@@ -199,7 +218,13 @@ int main(){
   st.push(50);
   st.push(60);
 
-  int pos = getMiddleElementsPos(st);
-  cout<<pos<<endl;
-  getMiddleElements(st ,pos);
+
+  int elements = 400;
+  insertAtBottom(st,elements);
+  
+
+  //          get middle and middleElements
+  // int pos = getMiddleElementsPos(st);
+  // cout<<pos<<endl;
+  // getMiddleElements(st ,pos);
 }
