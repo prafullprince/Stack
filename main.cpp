@@ -400,22 +400,54 @@ using namespace std;
 //     }
 // };
 
-int solve(vector<int> arr){
-  int maxProfit = -999;
-  int size = arr.size();
-  for(int i=0;i<size;i++){
-    for(int j=i+2;j<size;j=j+2){
-      int profit = arr[i]+arr[j];
-      if(profit>maxProfit){
-        maxProfit = profit;
-      }
-    }
-  }
-  return maxProfit;
-}
 
-int main(){
-  vector<int> arr = {9,1,3,7};
-  int ans = solve(arr);
-  cout<<"maxProfit is: "<<ans<<endl;
-}
+//       House Robber Problem - iterative approach
+
+
+// int solve(vector<int> arr){
+//   int maxProfit = -999;
+//   int size = arr.size();
+//   for(int i=0;i<size;i++){
+//     for(int j=i+2;j<size;j=j+2){
+//       int profit = arr[i]+arr[j];
+//       if(profit>maxProfit){
+//         maxProfit = profit;
+//       }
+//     }
+//   }
+//   return maxProfit;
+// }
+
+// int main(){
+//   vector<int> arr = {9,1,3,7};
+//   int ans = solve(arr);
+//   cout<<"maxProfit is: "<<ans<<endl;
+// }
+
+
+
+
+//         House Robber - recursion approach
+
+
+
+// int solve(vector<int> arr,int i){
+//   int size = arr.size();
+//   // base case
+//   if(i>=size){
+//     return 0;
+//   }
+
+//   // 1 case
+//   int sum1 = arr[i] + solve(arr,i+2);
+//   int sum2 = solve(arr,i+1);
+//   int ans = max(sum1,sum2);
+//   return ans;
+// }
+
+// int main(){
+//   vector<int> arr = {1,2,3,7,9,11};
+//   int i=0;
+//   int finalAns = solve(arr,i);
+//   cout<<"finalAns is: "<<finalAns<<endl;
+// }
