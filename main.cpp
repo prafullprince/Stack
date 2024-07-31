@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 #include <stack>
+#include <vector>
 
 
 
@@ -369,32 +370,52 @@ using namespace std;
 //           valid parenthesis
 
 
-class Solution {
-public:
-    bool isValid(string s) {
-        stack<char> st;
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s[i];
-            if (ch == '(' || ch == '[' || ch == '{') {
-                st.push(ch);
-            } else {
-                // closed bracket
-                if (!st.empty()) {
-                    if (ch == ')' && st.top() == '(') {
-                        st.pop();
-                    } else if (ch == ']' && st.top() == '[') {
-                        st.pop();
-                    } else if (ch == '}' && st.top() == '{') {
-                        st.pop();
-                    } else {
-                        // no matching opening bracket
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            }
-        }
-        return st.empty();
+// class Solution {
+// public:
+//     bool isValid(string s) {
+//         stack<char> st;
+//         for (int i = 0; i < s.length(); i++) {
+//             char ch = s[i];
+//             if (ch == '(' || ch == '[' || ch == '{') {
+//                 st.push(ch);
+//             } else {
+//                 // closed bracket
+//                 if (!st.empty()) {
+//                     if (ch == ')' && st.top() == '(') {
+//                         st.pop();
+//                     } else if (ch == ']' && st.top() == '[') {
+//                         st.pop();
+//                     } else if (ch == '}' && st.top() == '{') {
+//                         st.pop();
+//                     } else {
+//                         // no matching opening bracket
+//                         return false;
+//                     }
+//                 } else {
+//                     return false;
+//                 }
+//             }
+//         }
+//         return st.empty();
+//     }
+// };
+
+int solve(vector<int> arr){
+  int maxProfit = -999;
+  int size = arr.size();
+  for(int i=0;i<size;i++){
+    for(int j=i+2;j<size;j=j+2){
+      int profit = arr[i]+arr[j];
+      if(profit>maxProfit){
+        maxProfit = profit;
+      }
     }
-};
+  }
+  return maxProfit;
+}
+
+int main(){
+  vector<int> arr = {9,1,3,7};
+  int ans = solve(arr);
+  cout<<"maxProfit is: "<<ans<<endl;
+}
