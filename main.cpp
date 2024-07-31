@@ -189,42 +189,88 @@ using namespace std;
 //   return pos;
 // }
 
-void insertAtBottom(stack<int> &st,int &elements){
-  int size = st.size();
-  // base case
-  if(st.empty()){
-    st.push(elements);
-    return;
-  }
+// void insertAtBottom(stack<int> &st,int &elements){
+//   int size = st.size();
+//   // base case
+//   if(st.empty()){
+//     st.push(elements);
+//     return;
+//   }
 
-  // 1 case
-  int temp = st.top();
-  st.pop();
-  size--;
-  insertAtBottom(st,elements);
+//   // 1 case
+//   int temp = st.top();
+//   st.pop();
+//   size--;
+//   insertAtBottom(st,elements);
 
-  cout<<st.top()<<" ";
-  // backtracking
-  st.push(temp);
-}
+//   cout<<st.top()<<" ";
+//   // backtracking
+//   st.push(temp);
+// }
 
-int main(){
-  stack<int> st;
+// void insertAtBottom(stack<int> &st,int &temp){
+//   // base case
+//   if(st.empty()){
+//     st.push(temp);
+//     return;
+//   }
 
-  st.push(10);
-  st.push(20);
-  st.push(30);
-  st.push(40);
-  st.push(50);
-  st.push(60);
+//   // 1 case
+//   temp = st.top();
+//   st.pop();
+//   insertAtBottom(st,temp);
+
+//   // backtracking
+//   st.push(temp); 
+// }
+
+// void reverseStack(stack<int> &st){
+//   // base case
+//   if(st.empty()){
+//     return;
+//   }
+
+//   // 1 case
+//   int temp = st.top();
+//   st.pop();
+
+//   // recursion
+//   reverseStack(st);
+
+//   // backtracking
+//   insertAtBottom(st,temp);
+  
+// }
 
 
-  int elements = 400;
-  insertAtBottom(st,elements);
+
+// int main(){
+//   stack<int> st;
+
+//   st.push(10);
+//   st.push(20);
+//   st.push(30);
+//   st.push(40);
+//   st.push(50);
+//   st.push(60);
+
+
+//   // int elements = 400;
+//   // insertAtBottom(st,elements);
+//   // while(!st.empty()){
+//   //   cout<<st.top()<<" ";
+//   //   st.pop();
+//   // }
+  
+//   reverseStack(st);
+//   while(!st.empty()){
+//     cout<<st.top()<<" ";
+//     st.pop();
+//   }
   
 
-  //          get middle and middleElements
-  // int pos = getMiddleElementsPos(st);
-  // cout<<pos<<endl;
-  // getMiddleElements(st ,pos);
-}
+//   //          get middle and middleElements
+//   // int pos = getMiddleElementsPos(st);
+//   // cout<<pos<<endl;
+//   // getMiddleElements(st ,pos);
+// }

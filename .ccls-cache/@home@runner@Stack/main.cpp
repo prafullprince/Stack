@@ -135,18 +135,142 @@ using namespace std;
 
 //             reverse string using stack
 
-int main(){
-  string str = "Hello";
-  stack<char> st;
+// int main(){
+//   string str = "Hello";
+//   stack<char> st;
 
-  for(int i=0;i<str.length();i++){
-    char ch = str[i];
-    st.push(ch);
+//   for(int i=0;i<str.length();i++){
+//     char ch = str[i];
+//     st.push(ch);
+//   }
+
+//   while(!st.empty()){
+//     cout<<st.top()<<"";
+//     st.pop();
+//   }
+//   cout<<endl;
+// }
+
+
+
+//           Get Middle elements of stack
+
+// void getMiddleElements(stack<int> &st,int &pos){
+//   // base case
+//   if(pos==1){
+//     cout<<st.top()<<endl;
+//     return;
+//   }
+
+//   // 1 case
+//   int temp = st.top();
+//   st.pop();
+//   pos--;
+//   getMiddleElements(st,pos);
+
+//   // backtracking
+//   st.push(temp);
+  
+// }
+
+// int getMiddleElementsPos(stack<int> &st){
+//   int size = st.size();
+//   if(st.empty()){
+//     return -1;
+//   }
+
+//   int pos = 0;
+//   if(size%2==0){
+//     pos = size/2;
+//   }
+//   else{
+//     pos = size/2+1;
+//   }
+//   return pos;
+// }
+
+// void insertAtBottom(stack<int> &st,int &elements){
+//   int size = st.size();
+//   // base case
+//   if(st.empty()){
+//     st.push(elements);
+//     return;
+//   }
+
+//   // 1 case
+//   int temp = st.top();
+//   st.pop();
+//   size--;
+//   insertAtBottom(st,elements);
+
+//   cout<<st.top()<<" ";
+//   // backtracking
+//   st.push(temp);
+// }
+
+void insertAtBottom(stack<int> &st,int &temp){
+  // base case
+  if(st.empty()){
+    st.push(temp);
+    return;
   }
 
+  // 1 case
+  temp = st.top();
+  st.pop();
+  insertAtBottom(st,temp);
+
+  // backtracking
+  st.push(temp); 
+}
+
+void reverseStack(stack<int> &st){
+  // base case
+  if(st.empty()){
+    return;
+  }
+
+  // 1 case
+  int temp = st.top();
+  st.pop();
+
+  // recursion
+  reverseStack(st);
+
+  // backtracking
+  insertAtBottom(st,temp);
+  
+}
+
+
+
+int main(){
+  stack<int> st;
+
+  st.push(10);
+  st.push(20);
+  st.push(30);
+  st.push(40);
+  st.push(50);
+  st.push(60);
+
+
+  // int elements = 400;
+  // insertAtBottom(st,elements);
+  // while(!st.empty()){
+  //   cout<<st.top()<<" ";
+  //   st.pop();
+  // }
+  
+  reverseStack(st);
   while(!st.empty()){
-    cout<<st.top()<<"";
+    cout<<st.top()<<" ";
     st.pop();
   }
-  cout<<endl;
+  
+
+  //          get middle and middleElements
+  // int pos = getMiddleElementsPos(st);
+  // cout<<pos<<endl;
+  // getMiddleElements(st ,pos);
 }
